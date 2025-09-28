@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { SetsService } from './sets.service';
 import { Set } from './set.model';
 import { CreateSetDto } from './dto/create-set.dto';
@@ -20,5 +20,10 @@ export class SetsController {
   @Post()
   createSet(@Body() createSetDto: CreateSetDto): Set {
     return this.setsService.createSet(createSetDto);
+  }
+
+  @Delete('/:id')
+  deleteSetById(@Param('id') id: string): void {
+    return this.setsService.deleteSetByID(id);
   }
 }

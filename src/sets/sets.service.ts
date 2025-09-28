@@ -36,4 +36,8 @@ export class SetsService {
     this.sets.push(newSet);
     return newSet;
   }
+
+  deleteSetByID(setId: string): void {
+    this.sets = this.sets.filter((set) => set.set_id !== setId);
+  }
 }
