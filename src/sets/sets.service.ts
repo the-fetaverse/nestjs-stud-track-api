@@ -1,4 +1,10 @@
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
-export class SetsService {}
+export class SetsService {
+  private sets = [];
+
+  getAllSets() {
+    return this.sets;
+  }
+}
