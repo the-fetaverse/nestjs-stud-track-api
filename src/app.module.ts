@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
-import { SetModule } from './set/set.module';
+import { SetsModule } from './sets/sets.module';
 
 @Module({
-  imports: [SetModule],
+  imports: [SetsModule],
 })
 export class AppModule {}
