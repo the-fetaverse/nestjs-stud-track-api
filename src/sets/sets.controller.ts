@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { SetsService } from './sets.service';
 import { Set } from './set.model';
 import { CreateSetDto } from './dto/create-set.dto';
@@ -10,6 +10,11 @@ export class SetsController {
   @Get()
   getAllSets(): Set[] {
     return this.setsService.getAllSets();
+  }
+
+  @Get('/:id')
+  getSetById(@Param('id') id: string): Set {
+    return this.setsService.getSetById(id);
   }
 
   @Post()

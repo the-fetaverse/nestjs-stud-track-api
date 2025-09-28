@@ -11,6 +11,14 @@ export class SetsService {
     return this.sets;
   }
 
+  getSetById(setId: string): Set {
+    const foundSet = this.sets.find((set) => set.set_id === setId);
+    if (!foundSet) {
+      throw new Error(`Set with id ${setId} not found`);
+    }
+    return foundSet;
+  }
+
   createSet(createSetDto: CreateSetDto): Set {
     const { set_num, set_name, set_year, theme_id, num_parts, set_img_url } =
       createSetDto;
