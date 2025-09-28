@@ -1,4 +1,4 @@
-export interface Set {
+export class Set {
   set_id: string;
   set_num: string;
   set_name: string;
