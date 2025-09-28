@@ -9,7 +9,7 @@ export interface Set {
   set_status: SetStatus;
 }
 
-enum SetStatus {
+export enum SetStatus {
   OWNED = 'OWNED',
   WISHLIST = 'WISHLIST',
   SOLD = 'SOLD',
