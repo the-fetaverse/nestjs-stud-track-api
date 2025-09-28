@@ -1,6 +1,14 @@
-import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Patch,
+} from '@nestjs/common';
 import { SetsService } from './sets.service';
-import { Set } from './set.model';
+import { Set, SetStatus } from './set.model';
 import { CreateSetDto } from './dto/create-set.dto';
 
 @Controller('sets')
@@ -20,6 +28,14 @@ export class SetsController {
   @Post()
   createSet(@Body() createSetDto: CreateSetDto): Set {
     return this.setsService.createSet(createSetDto);
+  }
+
+  @Patch('/:id/set_status')
+  updateSetStatus(
+    @Param('id') id: string,
+    @Body('set_status') status: SetStatus,
+  ): Set {
+    return this.setsService.updateSetStatus(id, status);
   }
 
   @Delete('/:id')

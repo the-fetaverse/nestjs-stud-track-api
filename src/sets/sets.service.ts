@@ -37,6 +37,12 @@ export class SetsService {
     return newSet;
   }
 
+  updateSetStatus(setId: string, status: SetStatus): Set {
+    const foundSet = this.getSetById(setId);
+    foundSet.set_status = status;
+    return foundSet;
+  }
+
   deleteSetByID(setId: string): void {
     this.sets = this.sets.filter((set) => set.set_id !== setId);
   }
