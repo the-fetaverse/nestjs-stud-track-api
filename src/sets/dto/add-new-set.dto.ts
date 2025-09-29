@@ -1,4 +1,4 @@
-export class CreateSetDto {
+export class AddNewSetDto {
   set_num: string;
   set_name: string;
   set_year: number;

@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { Set, SetStatus } from './set.model';
 import { v7 as uuid } from 'uuid';
-import { CreateSetDto } from './dto/create-set.dto';
+import { AddNewSetDto } from './dto/add-new-set.dto';
 
 @Injectable()
 export class SetsService {
@@ -19,9 +19,9 @@ export class SetsService {
     return foundSet;
   }
 
-  createSet(createSetDto: CreateSetDto): Set {
+  addNewSet(addNewSetDto: AddNewSetDto): Set {
     const { set_num, set_name, set_year, theme_id, num_parts, set_img_url } =
-      createSetDto;
+      addNewSetDto;
 
     const newSet: Set = {
       set_id: uuid(),

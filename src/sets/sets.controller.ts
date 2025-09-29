@@ -9,7 +9,7 @@ import {
 } from '@nestjs/common';
 import { SetsService } from './sets.service';
 import { Set, SetStatus } from './set.model';
-import { CreateSetDto } from './dto/create-set.dto';
+import { AddNewSetDto } from './dto/add-new-set.dto';
 
 @Controller('sets')
 export class SetsController {
@@ -26,8 +26,8 @@ export class SetsController {
   }
 
   @Post()
-  createSet(@Body() createSetDto: CreateSetDto): Set {
-    return this.setsService.createSet(createSetDto);
+  addNewSet(@Body() addNewSetDto: AddNewSetDto): Set {
+    return this.setsService.addNewSet(addNewSetDto);
   }
 
   @Patch('/:id/set_status')
