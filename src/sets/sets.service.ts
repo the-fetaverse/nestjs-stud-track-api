@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { Set, SetStatus } from './set.model';
 import { v7 as uuid } from 'uuid';
 import { AddNewSetDto } from './dto/add-new-set.dto';
@@ -15,7 +15,7 @@ export class SetsService {
   getSetById(setId: string): Set {
     const foundSet = this.sets.find((set) => set.set_id === setId);
     if (!foundSet) {
-      throw new Error(`Set with id ${setId} not found`);
+      throw new NotFoundException(`Set with ID "${setId}" not found`);
     }
     return foundSet;
   }
