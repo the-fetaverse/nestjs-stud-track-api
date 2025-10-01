@@ -34,10 +34,10 @@ export class SetsService {
       );
     }
     if (set_year) {
-      sets = sets.filter((set) => set.set_year === set_year);
+      sets = sets.filter((set) => set.set_year === Number(set_year));
     }
     if (theme_id) {
-      sets = sets.filter((set) => set.theme_id === theme_id);
+      sets = sets.filter((set) => set.theme_id === Number(theme_id));
     }
     if (set_status) {
       sets = sets.filter((set) => set.set_status === set_status);
@@ -53,9 +53,9 @@ export class SetsService {
       set_id: uuid(),
       set_num,
       set_name,
-      set_year,
-      theme_id,
-      num_parts,
+      set_year: Number(set_year),
+      theme_id: Number(theme_id),
+      num_parts: Number(num_parts),
       set_img_url,
       set_status: SetStatus.OWNED,
     };
