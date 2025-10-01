@@ -70,6 +70,10 @@ export class SetsService {
   }
 
   deleteSetByID(setId: string): void {
+    const foundSet = this.getSetById(setId);
+    if (!foundSet) {
+      throw new NotFoundException(`Set with ID "${setId}" not found`);
+    }
     this.sets = this.sets.filter((set) => set.set_id !== setId);
   }
 }
