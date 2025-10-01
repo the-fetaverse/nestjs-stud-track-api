@@ -12,6 +12,7 @@ import { SetsService } from './sets.service';
 import { Set, SetStatus } from './set.model';
 import { AddNewSetDto } from './dto/add-new-set.dto';
 import { GetSetQueryDto } from './dto/get-set-query.dto';
+import { UpdateSetStatus } from './dto/update-set-status.dto';
 
 @Controller('sets')
 export class SetsController {
@@ -43,9 +44,10 @@ export class SetsController {
   @Patch('/:id/set_status')
   updateSetStatus(
     @Param('id') id: string,
-    @Body('set_status') status: SetStatus,
+    @Body() updateSetStatusDto: UpdateSetStatus,
   ): Set {
-    return this.setsService.updateSetStatus(id, status);
+    const { set_status } = updateSetStatusDto;
+    return this.setsService.updateSetStatus(id, set_status);
   }
 
   // DELETE a set by ID
